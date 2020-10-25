@@ -23,10 +23,11 @@ class CreateOrderService {
     private ordersRepository: IOrdersRepository,
     private productsRepository: IProductsRepository,
     private customersRepository: ICustomersRepository,
-  ) {}
+  ) { }
 
   public async execute({ customer_id, products }: IRequest): Promise<Order> {
     // TODO
+    const order = await this.ordersRepository.create({ customer_id, products });
   }
 }
 
